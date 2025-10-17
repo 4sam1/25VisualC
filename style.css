@@ -1,62 +1,82 @@
-/* 全体 */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+/* ===== Theme Vars ===== */
+:root{
+  --bg: #e9eff6;
+  --ink: #1f2d3d;
+  --brand: #163d6b;
+  --brand-2: #7aa3d9;
+  --card: #fff;
+  --shadow: 0 6px 18px rgba(0,0,0,.08);
+}
+
+/* ===== Base ===== */
 body{
-  margin:0;
-  font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
-  background:#e9eff6;
-  color:#1f2d3d;
-  text-align:center;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  text-align: center;
+  line-height: 1.7;
 }
 
-/* ヘッダー */
+/* ===== Header ===== */
 .site-header{
-  padding:36px 16px 8px;
+  padding: 36px 16px 8px;
 }
-.site-header h1{
-  margin:0;
-  font-size:2rem;
-  color:#163d6b;
-  letter-spacing:.06em;
+.site-title{
+  margin: 0;
+  font-size: clamp(24px, 4vw, 32px);
+  color: var(--brand);
+  letter-spacing: .06em;
+  font-weight: 700;
 }
-.site-header .author{
-  margin:.4rem 0 0;
-  color:#406999;
-  font-size:.95rem;
+.site-author{
+  margin: .4rem 0 0;
+  color: #406999;
+  font-size: .95rem;
 }
 
-/* 幅 */
+/* ===== Layout ===== */
 .container{
-  max-width:920px;
+  max-width: 920px;
   margin: 24px auto 56px;
   padding: 0 16px;
 }
 
-/* メニュー */
+/* ===== Menu ===== */
 .menu{
-  list-style: none;
-  padding:0;
-  margin: 24px auto 0;
-  display:grid;
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap:16px;
-  max-width:720px;
+  gap: 16px;
+  max-width: 720px;
+  margin: 24px auto 0;
 }
-
-/* 各リンクをカード風ボタンに */
-.menu a{
-  display:block;
-  padding:16px 20px;
-  background:#ffffff;
-  border:1.5px solid #7aa3d9;
-  border-radius:14px;
-  text-decoration:none;
-  color:#163d6b;
-  font-weight:700;
-  letter-spacing:.02em;
-  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+.menu-link{
+  display: block;
+  padding: 16px 20px;
+  background: var(--card);
+  border: 1.5px solid var(--brand-2);
+  border-radius: 14px;
+  text-decoration: none;
+  color: var(--brand);
+  font-weight: 700;
+  letter-spacing: .02em;
+  box-shadow: var(--shadow);
   transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
 }
-.menu a:hover{
+.menu-link:hover,
+.menu-link:focus-visible{
   transform: translateY(-2px);
-  background:#f3f7ff;
+  background: #f3f7ff;
   box-shadow: 0 10px 24px rgba(22,61,107,.18);
+  outline: none;
+}
+
+/* ===== Footer ===== */
+.site-footer{
+  padding: 20px 0 32px;
+  color: #55769e;
+  font-size: .9rem;
 }
