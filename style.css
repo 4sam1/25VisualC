@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  background: #eef4ff;
+  color: #222;
+  text-align: center;
+}
+
+h1 {
+  color: #003366;
+  margin-top: 40px;
+}
+
+a {
+  color: #003366;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
