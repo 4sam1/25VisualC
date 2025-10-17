@@ -1,9 +1,9 @@
-/* ===== Reset ===== */
-*{ box-sizing:border-box; }
-html,body{ margin:0; padding:0; }
-ul,ol{ margin:0; padding:0; list-style:none; }
+/* ===== リセット ===== */
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+ul,ol{margin:0;padding:0;list-style:none;}
 
-/* ===== Theme ===== */
+/* ===== カラー・レイアウト変数 ===== */
 :root{
   --bg:#e9eff6;
   --ink:#1f2d3d;
@@ -11,20 +11,19 @@ ul,ol{ margin:0; padding:0; list-style:none; }
   --brand-2:#7aa3d9;
   --card:#fff;
   --shadow:0 6px 18px rgba(0,0,0,.08);
-  --max-text: 880px;           /* 本文の行幅をここで管理 */
+  --max-text:880px;
 }
 
-/* ===== Base ===== */
+/* ===== 基本設定 ===== */
 body{
-  font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",Meiryo,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
   color:var(--ink);
   background:var(--bg);
   line-height:1.85;
-  /* ← ここから：本文をデフォルト左揃えに */
-  text-align: initial;
+  text-align:left;
 }
 
-/* ヘッダーだけ中央に */
+/* ===== ヘッダー ===== */
 .site-header{
   text-align:center;
   padding:36px 16px 8px;
@@ -42,17 +41,17 @@ body{
   font-size:.95rem;
 }
 
-/* レイアウト */
+/* ===== レイアウト ===== */
 .container{
-  max-width: 1120px;
-  margin: 24px auto 56px;
-  padding: 0 16px;
+  max-width:1120px;
+  margin:24px auto 56px;
+  padding:0 16px;
 }
 
-/* トップのメニュー（中央にカード） */
+/* ===== トップメニュー ===== */
 .menu{
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:16px;
   max-width:720px;
   margin:24px auto 0;
@@ -67,107 +66,85 @@ body{
   text-decoration:none;
   color:var(--brand);
   font-weight:700;
-  letter-spacing:.02em;
   box-shadow:var(--shadow);
-  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+  transition:.12s;
 }
-.menu a:hover{ transform:translateY(-2px); background:#f3f7ff; box-shadow:0 10px 24px rgba(22,61,107,.18); }
+.menu a:hover{
+  transform:translateY(-2px);
+  background:#f3f7ff;
+  box-shadow:0 10px 24px rgba(22,61,107,.18);
+}
 
-/* ===== Lecture pages（本文は左揃え） ===== */
+/* ===== 講義ページ ===== */
 .content{
-  max-width: var(--max-text);
-  margin: 36px auto;
-  background: rgba(255,255,255,.96);
-  padding: 28px 32px;
-  border-radius: 14px;
-  box-shadow: var(--shadow);
-  /* ← 本文を左揃えに固定 */
-  text-align: left;
-  /* ← 日本語の段落が自然に見えるように整形 */
-  text-justify: inter-ideograph;
-  text-align-last: auto;
+  max-width:var(--max-text);
+  margin:36px auto;
+  background:rgba(255,255,255,.96);
+  padding:28px 32px;
+  border-radius:14px;
+  box-shadow:var(--shadow);
 }
-
-/* 2カラム：左＝本文、右＝画像（狭い画面は自動で1カラム） */
 .two-col{
   display:grid;
-  grid-template-columns: 1.3fr .9fr;
+  grid-template-columns:1.3fr .9fr;
   gap:24px;
-  align-items:start;
 }
-@media (max-width: 860px){
-  .two-col{ grid-template-columns:1fr; }
+@media(max-width:860px){
+  .two-col{grid-template-columns:1fr;}
 }
-
-/* 小見出し（左揃えのまま強調） */
 .subtle{
-  color:#406999;
+  color:#305c91;
   font-weight:700;
-  letter-spacing:.03em;
-  border-left:4px solid var(--brand-2);
-  padding-left:.6em;
+  border-left:5px solid #7aa3d9;
+  background:linear-gradient(to right,rgba(122,163,217,.15),transparent);
+  padding-left:.7em;
   margin:0 0 .6em;
 }
+.content p{margin:0 0 1.1em;}
+.content ul{margin:.2em 0 1.1em 1.2em;list-style:disc;}
+.content li{margin:.2em 0;}
 
-/* 段落とリストの読みやすさ */
-.content p{ margin: 0 0 1.1em; }
-.content ul{ margin: .2em 0 1.1em 1.2em; list-style: disc; } /* 講義の到達目標などは・を出す */
-.content li{ margin: .2em 0; }
-
-/* 画像 */
-.figure{ text-align:center; }
+/* ===== 画像 ===== */
+.figure{text-align:center;}
 .figure img{
-  max-width: 320px;
+  max-width:320px;
   width:100%;
   height:auto;
-  border-radius: 12px;
-  box-shadow: 0 8px 22px rgba(0,0,0,.12);
+  border-radius:12px;
+  box-shadow:0 8px 22px rgba(0,0,0,.12);
 }
 
-/* 戻るボタン */
+/* ===== 戻るボタン ===== */
 .back-btn{
   display:inline-block;
-  margin: 16px 0 0;
+  margin:16px 0 0;
   padding:10px 16px;
-  text-decoration:none;
-  border-radius:10px;
   border:1.5px solid var(--brand-2);
+  border-radius:10px;
   background:#fff;
   color:var(--brand);
   font-weight:700;
-  transition:.12s ease;
+  text-decoration:none;
+  transition:.12s;
 }
-.back-btn:hover{ background:#f3f7ff; transform: translateY(-1px); }
-
-/* ===== フォントとか ===== */
-
-/* 見出しフォント */
-.site-header h1,
-.subtle {
-  font-family: "Roboto", "Noto Sans JP", sans-serif;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+.back-btn:hover{
+  background:#f3f7ff;
+  transform:translateY(-1px);
 }
 
-/* 本文フォント */
-body, .content p, .content li {
-  font-family: "Noto Serif JP", serif;
-  font-size: 1.05rem;
-  color: #2a2a2a;
+/* ===== フォント装飾ね ===== */
+.site-header h1,.subtle{
+  font-family:"Roboto","Noto Sans JP",sans-serif;
+  font-weight:800;
+  letter-spacing:.08em;
 }
-
-/* タイトルに軽いグラデーション */
-.site-header h1 {
-  background: linear-gradient(90deg, #1f4d8f, #7aa3d9);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+body,.content p,.content li{
+  font-family:"Noto Serif JP",serif;
+  font-size:1.05rem;
+  color:#2a2a2a;
 }
-
-/* 小見出しの装飾強調 */
-.subtle {
-  font-weight: 700;
-  color: #305c91;
-  border-left: 5px solid #7aa3d9;
-  background: linear-gradient(to right, rgba(122,163,217,0.15), transparent);
-  padding-left: .7em;
+.site-header h1{
+  background:linear-gradient(90deg,#1f4d8f,#7aa3d9);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
