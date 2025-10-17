@@ -1,132 +1,133 @@
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
-ul, ol { margin: 0; padding: 0; list-style: none; }
+/* ===== Reset ===== */
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+ul,ol{ margin:0; padding:0; list-style:none; }
 
-/* ===== Theme Vars ===== */
+/* ===== Theme ===== */
 :root{
-  --bg: #e9eff6;
-  --ink: #1f2d3d;
-  --brand: #163d6b;
-  --brand-2: #7aa3d9;
-  --card: #fff;
-  --shadow: 0 6px 18px rgba(0,0,0,.08);
+  --bg:#e9eff6;
+  --ink:#1f2d3d;
+  --brand:#163d6b;
+  --brand-2:#7aa3d9;
+  --card:#fff;
+  --shadow:0 6px 18px rgba(0,0,0,.08);
+  --max-text: 880px;           /* 本文の行幅をここで管理 */
 }
 
 /* ===== Base ===== */
 body{
-  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, system-ui, -apple-system, "Segoe UI", sans-serif;
-  color: var(--ink);
-  background: var(--bg);
-  text-align: center;
-  line-height: 1.7;
+  font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",Meiryo,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.85;
+  /* ← ここから：本文をデフォルト左揃えに */
+  text-align: initial;
 }
 
-/* ===== Header ===== */
+/* ヘッダーだけ中央に */
 .site-header{
-  padding: 36px 16px 8px;
+  text-align:center;
+  padding:36px 16px 8px;
 }
-.site-title{
-  margin: 0;
-  font-size: clamp(24px, 4vw, 32px);
-  color: var(--brand);
-  letter-spacing: .06em;
-  font-weight: 700;
+.site-header h1{
+  margin:0;
+  font-size:clamp(24px,4vw,32px);
+  color:var(--brand);
+  letter-spacing:.06em;
+  font-weight:700;
 }
-.site-author{
-  margin: .4rem 0 0;
-  color: #406999;
-  font-size: .95rem;
+.site-header .author{
+  margin:.4rem 0 0;
+  color:#406999;
+  font-size:.95rem;
 }
 
-/* ===== Layout ===== */
+/* レイアウト */
 .container{
-  max-width: 920px;
+  max-width: 1120px;
   margin: 24px auto 56px;
   padding: 0 16px;
 }
 
-/* ===== Menu ===== */
+/* トップのメニュー（中央にカード） */
 .menu{
-  display: grid;
+  display:grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
-  max-width: 720px;
-  margin: 24px auto 0;
+  gap:16px;
+  max-width:720px;
+  margin:24px auto 0;
+  text-align:center;
 }
-.menu-link{
-  display: block;
-  padding: 16px 20px;
-  background: var(--card);
-  border: 1.5px solid var(--brand-2);
-  border-radius: 14px;
-  text-decoration: none;
-  color: var(--brand);
-  font-weight: 700;
-  letter-spacing: .02em;
-  box-shadow: var(--shadow);
+.menu a{
+  display:block;
+  padding:16px 20px;
+  background:var(--card);
+  border:1.5px solid var(--brand-2);
+  border-radius:14px;
+  text-decoration:none;
+  color:var(--brand);
+  font-weight:700;
+  letter-spacing:.02em;
+  box-shadow:var(--shadow);
   transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
 }
-.menu-link:hover,
-.menu-link:focus-visible{
-  transform: translateY(-2px);
-  background: #f3f7ff;
-  box-shadow: 0 10px 24px rgba(22,61,107,.18);
-  outline: none;
-}
+.menu a:hover{ transform:translateY(-2px); background:#f3f7ff; box-shadow:0 10px 24px rgba(22,61,107,.18); }
 
-/* ===== Footer ===== */
-.site-footer{
-  padding: 20px 0 32px;
-  color: #55769e;
-  font-size: .9rem;
-}
-/* ===== Lecture pages ===== */
+/* ===== Lecture pages（本文は左揃え） ===== */
 .content{
-  max-width: 920px;
+  max-width: var(--max-text);
   margin: 36px auto;
-  text-align: left;
   background: rgba(255,255,255,.96);
   padding: 28px 32px;
   border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(0,0,0,.08);
-  line-height: 1.9;
-  font-size: 1.05rem;
+  box-shadow: var(--shadow);
+  /* ← 本文を左揃えに固定 */
+  text-align: left;
+  /* ← 日本語の段落が自然に見えるように整形 */
+  text-justify: inter-ideograph;
+  text-align-last: auto;
 }
 
+/* 2カラム：左＝本文、右＝画像（狭い画面は自動で1カラム） */
 .two-col{
-  display: grid;
-  grid-template-columns: 1.3fr .9fr;   /* 本文 / 画像 */
-  gap: 24px;
-  align-items: start;
+  display:grid;
+  grid-template-columns: 1.3fr .9fr;
+  gap:24px;
+  align-items:start;
 }
-@media (max-width: 720px){
-  .two-col{ grid-template-columns: 1fr; }
-}
-
-.figure{
-  text-align: center;
-}
-.figure img{
-  max-width: 260px;
-  width: 100%;
-  height: auto;
-  border-radius: 16px;
-  box-shadow: 0 8px 22px rgba(0,0,0,.12);
-  display: inline-block;
+@media (max-width: 860px){
+  .two-col{ grid-template-columns:1fr; }
 }
 
+/* 小見出し（左揃えのまま強調） */
 .subtle{
   color:#406999;
   font-weight:700;
   letter-spacing:.03em;
-  border-left: 4px solid var(--brand-2);
-  padding-left: .6em;
-  margin: 0 0 .6em;
+  border-left:4px solid var(--brand-2);
+  padding-left:.6em;
+  margin:0 0 .6em;
 }
 
+/* 段落とリストの読みやすさ */
+.content p{ margin: 0 0 1.1em; }
+.content ul{ margin: .2em 0 1.1em 1.2em; list-style: disc; } /* 講義の到達目標などは・を出す */
+.content li{ margin: .2em 0; }
+
+/* 画像 */
+.figure{ text-align:center; }
+.figure img{
+  max-width: 320px;
+  width:100%;
+  height:auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.12);
+}
+
+/* 戻るボタン */
 .back-btn{
   display:inline-block;
-  margin: 20px 0 0;
+  margin: 16px 0 0;
   padding:10px 16px;
   text-decoration:none;
   border-radius:10px;
@@ -137,8 +138,3 @@ body{
   transition:.12s ease;
 }
 .back-btn:hover{ background:#f3f7ff; transform: translateY(-1px); }
-
-/* ページごとに色味を微調整 */
-.page-audio :root {}
-.page-vision :root {}
-.page-design :root {}
