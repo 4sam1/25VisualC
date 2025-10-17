@@ -80,3 +80,65 @@ body{
   color: #55769e;
   font-size: .9rem;
 }
+/* ===== Lecture pages ===== */
+.content{
+  max-width: 920px;
+  margin: 36px auto;
+  text-align: left;
+  background: rgba(255,255,255,.96);
+  padding: 28px 32px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  line-height: 1.9;
+  font-size: 1.05rem;
+}
+
+.two-col{
+  display: grid;
+  grid-template-columns: 1.3fr .9fr;   /* 本文 / 画像 */
+  gap: 24px;
+  align-items: start;
+}
+@media (max-width: 720px){
+  .two-col{ grid-template-columns: 1fr; }
+}
+
+.figure{
+  text-align: center;
+}
+.figure img{
+  max-width: 260px;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.12);
+  display: inline-block;
+}
+
+.subtle{
+  color:#406999;
+  font-weight:700;
+  letter-spacing:.03em;
+  border-left: 4px solid var(--brand-2);
+  padding-left: .6em;
+  margin: 0 0 .6em;
+}
+
+.back-btn{
+  display:inline-block;
+  margin: 20px 0 0;
+  padding:10px 16px;
+  text-decoration:none;
+  border-radius:10px;
+  border:1.5px solid var(--brand-2);
+  background:#fff;
+  color:var(--brand);
+  font-weight:700;
+  transition:.12s ease;
+}
+.back-btn:hover{ background:#f3f7ff; transform: translateY(-1px); }
+
+/* ページごとに色味を微調整 */
+.page-audio :root {}
+.page-vision :root {}
+.page-design :root {}
