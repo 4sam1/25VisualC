@@ -1,21 +1,62 @@
-body {
-  margin: 0;
-  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-  background: #eef4ff;
-  color: #222;
-  text-align: center;
+/* 全体 */
+body{
+  margin:0;
+  font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  background:#e9eff6;
+  color:#1f2d3d;
+  text-align:center;
 }
 
-h1 {
-  color: #003366;
-  margin-top: 40px;
+/* ヘッダー */
+.site-header{
+  padding:36px 16px 8px;
+}
+.site-header h1{
+  margin:0;
+  font-size:2rem;
+  color:#163d6b;
+  letter-spacing:.06em;
+}
+.site-header .author{
+  margin:.4rem 0 0;
+  color:#406999;
+  font-size:.95rem;
 }
 
-a {
-  color: #003366;
-  text-decoration: none;
+/* 幅 */
+.container{
+  max-width:920px;
+  margin: 24px auto 56px;
+  padding: 0 16px;
 }
 
-a:hover {
-  text-decoration: underline;
+/* メニュー */
+.menu{
+  list-style: none;
+  padding:0;
+  margin: 24px auto 0;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap:16px;
+  max-width:720px;
+}
+
+/* 各リンクをカード風ボタンに */
+.menu a{
+  display:block;
+  padding:16px 20px;
+  background:#ffffff;
+  border:1.5px solid #7aa3d9;
+  border-radius:14px;
+  text-decoration:none;
+  color:#163d6b;
+  font-weight:700;
+  letter-spacing:.02em;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+}
+.menu a:hover{
+  transform: translateY(-2px);
+  background:#f3f7ff;
+  box-shadow: 0 10px 24px rgba(22,61,107,.18);
 }
