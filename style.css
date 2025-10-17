@@ -138,3 +138,36 @@ body{
   transition:.12s ease;
 }
 .back-btn:hover{ background:#f3f7ff; transform: translateY(-1px); }
+
+/* ===== フォントとか ===== */
+
+/* 見出しフォント */
+.site-header h1,
+.subtle {
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+/* 本文フォント */
+body, .content p, .content li {
+  font-family: "Noto Serif JP", serif;
+  font-size: 1.05rem;
+  color: #2a2a2a;
+}
+
+/* タイトルに軽いグラデーション */
+.site-header h1 {
+  background: linear-gradient(90deg, #1f4d8f, #7aa3d9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 小見出しの装飾強調 */
+.subtle {
+  font-weight: 700;
+  color: #305c91;
+  border-left: 5px solid #7aa3d9;
+  background: linear-gradient(to right, rgba(122,163,217,0.15), transparent);
+  padding-left: .7em;
+}
